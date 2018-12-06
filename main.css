@@ -1,0 +1,19 @@
+/* Search Form */
+
+.js-search-form {
+  padding-bottom: 10px;
+}
+
+.js-search-input {
+  height: 30px;
+  width: 380px;
+  border: solid 2px darkgray;
+}
+
+.js-search-submit {
+  height: 35px;
+  width: 80px;
+  background-color: darkgray;
+  color: white;
+  font-size: 1em;
+}

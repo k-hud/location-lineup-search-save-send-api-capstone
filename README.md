@@ -40,7 +40,7 @@ As a user, I want to send my lineup to myself, so I can reference it later.
 
 ![Welcome Page](/wireframes/send.png)
 
-##Technical Specifications
+## Technical Specifications
 
 **Front End**
 * HTML5

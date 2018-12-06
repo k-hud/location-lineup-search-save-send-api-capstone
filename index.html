@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Location Lineup</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Location Lineup</h1>
+      <h2>Hi! You're here!</h2>
+    </header>
+
+    <main>
+      <section class="modal-welcome">
+        <!-- Modal HTML embedded directly into document -->
+        <div id="ex1" class="modal">
+          <p>Welcome! These are the instructions on how to use the app. I hope you like it.</p>
+          <a href="#" rel="modal:close">Get Started</a>
+        </div>
+
+        <!-- What I will implement to open the modal -->
+        <!-- <p><a href="#ex1" rel="modal:open">Open Modal</a></p> -->
+      </section>
+      <section class="search-section">
+        <form id="js-search-form" class="js-search-form" method="post">
+          <input id="js-search-input" class="js-search-input" type="text" name="search-term">
+          <input id="js-search-submit" class="js-search-submit" type="button" name="submit" value="Submit">
+        </form>
+      </section>
+      <section class="js-maps-section">
+        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=New%20York&key=AIzaSyDlfYjDFJsOVVlphZZSPkxN0nD50DgqK_k" allowfullscreen></iframe>
+      </section>
+      <section class="js-results-section">
+
+      </section>
+
+      <section class="js-lineup-section">
+
+      </section>
+      <footer>
+
+      </footer>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
