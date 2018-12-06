@@ -39,3 +39,11 @@ As a user, I want to save specific locations into a list, so I can build a set o
 As a user, I want to send my lineup to myself, so I can reference it later.
 
 ![Welcome Page](/wireframes/send.png)
+
+##Technical Specifications
+
+**Front End**
+* HTML5
+* CSS3
+* JavaScript
+* jQuery
