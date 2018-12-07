@@ -20,7 +20,7 @@ function structureQuery(searchTerm) {
   const queryData = {
     key: 'AIzaSyDlfYjDFJsOVVlphZZSPkxN0nD50DgqK_k',
     fields: "photos,formatted_address,name,rating,opening_hours,geometry",
-    inputtype: 'text',
+    inputtype: 'textquery',
     input: ''
   };
   queryData.input = searchTerm;
