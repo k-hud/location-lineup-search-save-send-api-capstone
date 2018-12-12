@@ -29,9 +29,12 @@
           <input id="js-search-submit" class="js-search-submit" type="button" name="submit" value="Submit">
         </form>
       </section>
-      <section class="js-maps-section">
-        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=New%20York&key=AIzaSyDlfYjDFJsOVVlphZZSPkxN0nD50DgqK_k" allowfullscreen></iframe>
+      <section class="js-map-holder">
+        <div id="map">
+
+        </div>
       </section>
+
       <section class="js-results-section">
 
       </section>
@@ -43,7 +46,7 @@
 
       </footer>
     </main>
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlfYjDFJsOVVlphZZSPkxN0nD50DgqK_k&libraries=places&callback=initMap"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
