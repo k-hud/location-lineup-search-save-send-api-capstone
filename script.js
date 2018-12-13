@@ -3,59 +3,55 @@ var map;
 var service;
 var infowindow;
 
-function loadPage() {
-  eventListner();
-  initAutocomplete();
-  initMap();
-}
-
-function initAutocomplete () {
-  var defaultBounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(40.712775,-74.005973),
-    new google.maps.LatLng(41, 75));
-
-  var input = document.getElementById('searchTextField');
-  var options = {
-    bounds: defaultBounds,
-    types: ['establishment']
-  };
-
-  autocomplete = new google.maps.places.Autocomplete(input, options);
-
-}
-
-function initMap(searchTerm) {
+function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.712, lng: -74.005},
     zoom: 8
     });
-}
 
-function eventListner() {
+    var input = document.getElementById('searchTextField');
+    var options = {
+      // bounds: defaultBounds,
+      types: ['establishment']
+    };
 
-  $("#js-search-submit").on('click', function(event)  {
-  console.log('Clicked!');
-  event.preventDefault();
-  console.log('Event prevented!');
-  let userSearchTerm = $('#searchTextField').val();
-  updateMap(userSearchTerm);
-  });
-}
+    var place;
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
 
-function updateMap(searchTerm) {
-  console.log(`I passed(${searchTerm}) to updateMap`);
-  console.log(searchTerm);
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.712, lng: -74.005},
-    zoom: 8
+    autocomplete.addListener('place_changed', function () {
+
+      var place = autocomplete.getPlace();
+      console.log('I searched and colleted:');
+      console.log(place);
+      console.log(`Location is: ${place.geometry.location}`);
+      debugger;
+      var marker = new google.maps.Marker({
+        position: place.geometry.location,
+        map: map,
+        title: place.name
+      });
+      map.setCenter(place.geometry.location);
+      map.setZoom(17);
+      marker.setPosition(place.geometry.location);
+      marker.setVisible(true);
+
+      return;
     });
 
-  var marker = new google.maps.Marker({
-   position: searchTerm,
-   map: map,
-   title: 'Hello World!'
-});
+
+
 }
 
-$(loadPage);
+// function eventListner() {
+//
+//   $("#js-search-submit").on('click', function(event)  {
+//   console.log('Clicked!');
+//   event.preventDefault();
+//   console.log('Event prevented!');
+//   let userSearchTerm = $('#searchTextField').val();
+//   updateMap(userSearchTerm);
+//   });
+// }
+
+$(initMap);
