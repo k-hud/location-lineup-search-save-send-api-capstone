@@ -2,6 +2,9 @@
 var map;
 var service;
 var infowindow;
+var marker;
+var place;
+
 
 function initMap() {
 
@@ -22,15 +25,34 @@ function initMap() {
     autocomplete.addListener('place_changed', function () {
 
       var place = autocomplete.getPlace();
-      console.log('I searched and colleted:');
       console.log(place);
-      console.log(`Location is: ${place.geometry.location}`);
-      debugger;
       var marker = new google.maps.Marker({
         position: place.geometry.location,
         map: map,
         title: place.name
       });
+
+      var locationContent = `
+      <h1 class='js-place-headline'>${place.name}</h1>
+      <div class="js-place-address"><strong>Address:</strong> ${place.formatted_address}</div>
+
+      <form>Save location: <input id="save-trigger" type="button" name="save" value="save"></form>
+      `;
+
+      marker.addListener('click', function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: locationContent
+          });
+
+        infowindow.open(map, marker);
+
+        $('#save-trigger').click(function () {
+          console.log("I DID run the listner.");
+          alert("I was clicked!");
+        });
+      });
+
+
       map.setCenter(place.geometry.location);
       map.setZoom(17);
       marker.setPosition(place.geometry.location);
@@ -40,18 +62,7 @@ function initMap() {
     });
 
 
+};
 
-}
-
-// function eventListner() {
-//
-//   $("#js-search-submit").on('click', function(event)  {
-//   console.log('Clicked!');
-//   event.preventDefault();
-//   console.log('Event prevented!');
-//   let userSearchTerm = $('#searchTextField').val();
-//   updateMap(userSearchTerm);
-//   });
-// }
 
 $(initMap);
