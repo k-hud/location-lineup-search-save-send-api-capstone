@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Location Lineup</title>
+    <link rel="stylesheet" href="grid.css">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
   </head>
@@ -23,21 +24,24 @@
         <!-- What I will implement to open the modal -->
         <!-- <p><a href="#ex1" rel="modal:open">Open Modal</a></p> -->
       </section>
-      <section class="search-section">
-        <form id="js-search-form" class="js-search-form" method="post">
-          Search: <input id="searchTextField" class="js-search-input" type="text" name="search-term">
-        </form>
-      </section>
-      <section class="js-map-holder">
-        <div id="map">
+      <section class="col-4">
+        <div class="search-section">
+          <form id="js-search-form" class="js-search-form" method="post">
+            Search: <input id="searchTextField" class="js-search-input" type="text" name="search-term">
+          </form>
+        </div>
+        <div class="js-map-holder">
+          <div id="map">
 
+          </div>
         </div>
       </section>
-
-      <section class="js-saved list">
-        <div class="js-display-saved">
-
-        </div>
+      <section class="col-4">
+          <h2>Your Saved List</h2>
+          <form class="list-controls">
+            <input  id="js-clear-list" type="button" name="clear" value="clear list">
+          </form>
+          <div class="js-saved-list"></div>
       </section>
 
       <footer>

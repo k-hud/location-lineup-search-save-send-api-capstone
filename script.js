@@ -5,6 +5,20 @@ var infowindow;
 var marker;
 var place;
 
+const savedPlaces = [];
+
+function loadPage() {
+  loadList();
+  initMap();
+}
+
+function loadList() {
+  console.log("I was loaded.");
+  $('#js-clear-list').on('click', event => {
+    
+    $('.js-saved-list').empty();
+  });
+}
 
 function initMap() {
 
@@ -43,15 +57,13 @@ function initMap() {
         var infowindow = new google.maps.InfoWindow({
           content: locationContent
           });
+        $('body').on('click', '#save-trigger', event => {
+          saveLocation(locationContent);
+          locationContent = ``;
+        });
 
         infowindow.open(map, marker);
-
-        $('#save-trigger').click(function () {
-          console.log("I DID run the listner.");
-          alert("I was clicked!");
         });
-      });
-
 
       map.setCenter(place.geometry.location);
       map.setZoom(17);
@@ -59,10 +71,15 @@ function initMap() {
       marker.setVisible(true);
 
       return;
+
     });
 
+  };
 
-};
+function saveLocation(location) {
+  console.log(`I passed to Saving and brought with me ${location}.`);
+  $('.js-saved-list').append(location);
+  console.log(`Did we do the thing?.`);
+}
 
-
-$(initMap);
+$(loadPage);
