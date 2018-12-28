@@ -4,6 +4,7 @@ var infowindow;
 var markers = [];
 var place;
 
+<<<<<<< HEAD
 const savedPlaces = [];
 
 function loadPage() {
@@ -19,6 +20,8 @@ function loadList() {
     console.log(`Clear list ran.`);
   });
 }
+=======
+>>>>>>> parent of e38b16b... Implement adding locations to the saved list and clearing the list.
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -72,6 +75,7 @@ function initMap() {
       <form>Save location: <input id="save-trigger" type="button" name="save" value="save"></form>
       `;
 
+<<<<<<< HEAD
   marker.addListener("click", function() {
     var infowindow = new google.maps.InfoWindow({
       content: locationContent
@@ -97,5 +101,32 @@ function saveLocation(location) {
   $(".js-saved-list").append(location);
   console.log(`Did we do the thing?.`);
 }
+=======
+      marker.addListener('click', function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: locationContent
+          });
 
-$(loadPage);
+        infowindow.open(map, marker);
+
+        $('#save-trigger').click(function () {
+          console.log("I DID run the listner.");
+          alert("I was clicked!");
+        });
+      });
+
+
+      map.setCenter(place.geometry.location);
+      map.setZoom(17);
+      marker.setPosition(place.geometry.location);
+      marker.setVisible(true);
+
+      return;
+    });
+
+
+};
+
+>>>>>>> parent of e38b16b... Implement adding locations to the saved list and clearing the list.
+
+$(initMap);
